@@ -29,33 +29,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-      <div class="container">
-        <a href="" class="navbar-brand">
-          <img src="../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">Aplikasi UKK Pemesanan Hotel</span>
-        </a>
-
-        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-          <!-- Left navbar links -->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="index.php" class="nav-link">Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a href="pesanan.php" class="nav-link">Pesanan</a>
-            </li>
-            <li class="nav-item">
-              <a href="logout.php" class="nav-link">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <?php
+        include './header.php';
+    ?>
     <!-- /.navbar -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -102,6 +78,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         More info <i class="fas fa-arrow-circle-right"></i>
                       </a>
                     </div>
+                    <div class="row">
+                  <?php
+                  include '../koneksi.php';
+                  $no = 1;
+                  $data = mysqli_query($koneksi, "select * from kontak");
+                  $jumlah_pesanan = mysqli_num_rows($data);
+                  ?>
+                  <div class="col-lg-12 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-info">
+                      <div class="inner">
+                        <h3>
+                          <?php echo $jumlah_pesanan; ?>                              
+                        </h3>
+
+                        <p>Contact</p>
+                      </div>
+                      <div class="icon">
+                        <i class="fas fa-home"></i>
+                      </div>
+                      <a href="contact.php" class="small-box-footer">
+                        More info <i class="fas fa-arrow-circle-right"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -109,6 +109,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div>
         </div><!-- /.container-fluid -->
       </div>
+      <!-- /.content -->
+    </div>
+      <!-- Main content -->
+     
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -119,15 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </aside>
     <!-- /.control-sidebar -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <!-- To the right -->
-      <div class="float-right d-none d-sm-inline">
-        Anything you want
-      </div>
-      <!-- Default to the left -->
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+  
   </div>
   <!-- ./wrapper -->
 

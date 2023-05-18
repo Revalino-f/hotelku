@@ -62,16 +62,17 @@ include 'koneksi.php';
                                 }
                               }
                               ?> 
-            </span><br>
-            <h6 class="mb-1">Rp.<?php 
-                              $fasilitas_kamar = mysqli_query($koneksi, "select * from fasilitas_kamar");
-                              while ($a = mysqli_fetch_array($fasilitas_kamar)) {
-                                if ($a['id_kamar'] == $row['id_kamar']) { ?>
-                                  <?php echo $a['harga']; ?>
-                                  <?php
-                                }
-                              }
-                              ?> per Malam </h6>
+            </span><br></br>
+            <h6 class="col-md-5 mb-lg-0 mb-md-0 mb-3 ">Rp.<?php 
+  $fasilitas_kamar = mysqli_query($koneksi, "select * from fasilitas_kamar");
+  while ($a = mysqli_fetch_array($fasilitas_kamar)) {
+    if ($a['id_kamar'] == $row['id_kamar']) {
+      $harga = $a['harga'];
+      $formatted_harga = number_format($harga, 0, ',', '.');
+      echo $formatted_harga;
+    }
+  }
+?> per Malam </h6>
     </div>
     
   </div>

@@ -1,3 +1,37 @@
+<?php
+include 'koneksi.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+    $timestamp = date('Y-m-d'); 
+
+    //mengirim ke databases
+    mysqli_query($koneksi, "insert into kontak values('$name','$email', ' $subject', '$message', '$timestamp')");
+    
+    
+}
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotel Booking Website</title>
+<!-- CSS only -->
+<?php require('inc/links.php'); ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,25 +98,25 @@
     </div>
     <div class="col-lg-6 col-md-6 mb-5 px-4">
       <div class="bg-white rounded shadow p-4">
-        <form>
+        <form action="" method="POST">
           <h5>Send a message</h5>
           <div class="mb-3">
           <label class="form-label" style="font-weight: 500;">Name</label>
-          <input type="text" class="form-control shadow-none">
+          <input type="text" name="name" class="form-control shadow-none">
           </div>
           <div class="mb-3">
           <label class="form-label" style="font-weight: 500;">Email</label>
-          <input type="email" class="form-control shadow-none">
+          <input type="email" name="email" class="form-control shadow-none">
           </div>
           <div class="mb-3">
           <label class="form-label" style="font-weight: 500;">Subject</label>
-          <input type="text" class="form-control shadow-none">
+          <input type="text" name="subject" class="form-control shadow-none">
           </div>
           <div class="mb-3">
           <label class="form-label" style="font-weight: 500;">Message</label>
-          <textarea class="form-control shadow-none" rows="5" style="resize: none;"></textarea>
+          <textarea class="form-control shadow-none" name="message" rows="5" style="resize: none;"></textarea>
           </div>
-          <button type="submit" class="btn text-white custom-bg mt-3">Send</button>
+          <button type="submit" name="submit" class="btn text-black custom-bg mt-3">Send</button>
         </form>
       </div>
     </div>

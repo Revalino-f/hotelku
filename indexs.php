@@ -1,6 +1,4 @@
-
-     
-           <?php 
+<?php 
 include 'koneksi.php';
 ?>
 <!DOCTYPE html>
@@ -41,14 +39,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	}
 </style>
 </head>
-
 <body>
 
     <!-- Navbar -->
     <?php require('inc/alert.php'); ?>
 <!-- Swiper Carousal-->
  <div class="container-fluid px-lg-4 mt-4">
-  
  	 <div class="swiper swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -102,7 +98,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div>
          </div>
        
-  
          <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">KAMAR</h2>
        
            <div class="container">
@@ -127,14 +122,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			  <div class="card-body">
 			    <h5 class="card-title"><?php echo $row['no_kamar']; ?></h5>
 			    <h6 class="mb-4">Rp.<?php 
-                              $fasilitas_kamar = mysqli_query($koneksi, "select * from fasilitas_kamar");
-                              while ($a = mysqli_fetch_array($fasilitas_kamar)) {
-                                if ($a['id_kamar'] == $row['id_kamar']) { ?>
-                                  <?php echo $a['harga']; ?>
-                                  <?php
-                                }
-                              }
-                              ?> per Malam </h6>
+  $fasilitas_kamar = mysqli_query($koneksi, "select * from fasilitas_kamar");
+  while ($a = mysqli_fetch_array($fasilitas_kamar)) {
+    if ($a['id_kamar'] == $row['id_kamar']) {
+      $harga = $a['harga'];
+      $formatted_harga = number_format($harga, 0, ',', '.');
+      echo $formatted_harga;
+    }
+  }
+?> per Malam </h6>
 			    <div class="features mb-4">
 			    	<h6 class="mb-1">Features</h6>
 			    	<span class="badge rounded-pill bg-light text-dark text-wrap">

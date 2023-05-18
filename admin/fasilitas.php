@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <th style="width: 10px">#</th>
                       <th>No Kamar</th>
                       <th>Fasilitas</th>
-                      <th>Aksi</th>
+                      <th>Harga</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -190,7 +190,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>         
             <div class="form-group">
               <label>harga</label>
-              <textarea name="harga" class="form-control" rows="3"></textarea>
+              <label>Note: harap mengunakan angka saja tanpa tanda titik, contoh: 250000</label>
+              <input type='number' name="harga" class="form-control" rows="3"></input>
             </div>      
           </div>
           <div class="modal-footer justify-content-between">

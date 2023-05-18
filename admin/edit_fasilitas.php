@@ -110,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <textarea name="fasilitas" class="form-control" rows="3"><?php echo $d['fasilitas'] ?></textarea>
                     </div> 
                     <label>harga</label>
-                      <textarea name="harga" class="form-control" rows="3"><?php echo $d['harga'] ?></textarea>
+                      <input type="number" name="harga" class="form-control" rows="3" placeholder="<?php echo $d['harga'] ?>"></input>
                     </div> 
                     <button type="submit" class="btn btn-primary">Update</button>
                   </form>
@@ -182,7 +182,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <textarea name="fasilitas" class="form-control" rows="3"></textarea>
             </div> 
             <div class="form-group">
-              <label>hargar</label>
+              <label>harga</label>
               <textarea name="harga" class="form-control" rows="3"></textarea>
             </div>        
           </div>
